@@ -215,6 +215,11 @@ public final class SurfaceRenderer implements DefaultLifecycleObserver {
     @Override
     public void onCreate(@NonNull LifecycleOwner owner) {
         Log.i(TAG, "SurfaceRenderer created");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         mCarContext.getCarService(AppManager.class).setSurfaceCallback(mSurfaceCallback);
     }
 

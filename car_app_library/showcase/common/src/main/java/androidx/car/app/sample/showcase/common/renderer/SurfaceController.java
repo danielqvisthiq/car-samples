@@ -121,6 +121,11 @@ public final class SurfaceController implements DefaultLifecycleObserver {
     @Override
     public void onCreate(@NonNull LifecycleOwner owner) {
         Log.i(TAG, "SurfaceController created");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         mCarContext.getCarService(AppManager.class).setSurfaceCallback(mSurfaceCallback);
     }
 
